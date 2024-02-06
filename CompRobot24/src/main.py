@@ -34,16 +34,25 @@ def automonus():
 
     pass
 
+con = Controller()
 
-
-def driver():
-    if con_buttonL1.pressing() == True:
+def left_driver():
+    if controller.axis3.pressing() == True:
         Left_Motor.spin(FORWARD) 
         Left_Motor.set.velocity(75, PERCENT)
-    elif con.buttonL2.pressing() == True: 
+    elif controller.axis3.pressing() == True: 
         Left_Motor.spin(REVERSE)
         Left_Motor.set.velocity(75, PERCENT)
     else:
         Left_Motor.stop()
+    
+    if controller.axis2.pressing() == True: 
+        Right_Motor.spin(FORWARD)
+        Right_Motor.set.velocity(75, PERCENT)
+    elif controller.axis2.pressing() == True: 
+        Right_Motor.spin(REVERSE)
+        Right_Motor.set.velocity(75, PERCENT)
+    else: 
+        Right_Motor.stop()
     pass
         
