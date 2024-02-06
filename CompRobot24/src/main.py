@@ -17,7 +17,7 @@ brain.screen.print("Hello V5")
 
 
 def main():
-    
+#aid bombs
     pass
 
 
