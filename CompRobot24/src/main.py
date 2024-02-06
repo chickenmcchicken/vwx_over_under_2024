@@ -30,8 +30,8 @@ def automonus():
 
     pass
 
-Left_Motor = Motor(Ports.PORT3, GearSetting.RATIO_16_1, True) 
-Right_Motor = Motor(Ports.PORT6, GearSetting.RATIO_16_1, True) 
+Left_Motor = Motor(Ports.PORT1, GearSetting.RATIO_16_1, True) 
+Right_Motor = Motor(Ports.PORT10, GearSetting.RATIO_16_1, True) 
 
 
 def driver():
