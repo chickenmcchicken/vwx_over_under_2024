@@ -36,5 +36,13 @@ Intake = Motor(Ports.PORT6, GearSetting.RATIO_6_1, True)
 Catapult = Motor(Ports.PORT8, GearSetting.RATIO_36_1, True)
 
 def driver():
+    if con_buttonL1.pressing() == True:
+        Left_Motor.spin(FORWARD) 
+        Left_Motor.set.velocity(75, PERCENT)
+    elif con.buttonL2.pressing() == True: 
+        Left_Motor.spin(REVERSE)
+        Left_Motor.set.velocity(75, PERCENT)
+    else:
+        Left_Motor.stop()
     pass
         
