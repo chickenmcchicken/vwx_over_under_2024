@@ -68,7 +68,7 @@ def jaine_drive():
         Right_Motor.spin(REVERSE)
         Right_Motor.set.velocity(75, PERCENT)
     else:
-        Right_Motor.stop
+        Right_Motor.stop()
         Left_Motor.stop()
 
     if controller.axis1.pressing() == True:
