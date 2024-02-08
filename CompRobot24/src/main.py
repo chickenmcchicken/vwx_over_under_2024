@@ -36,7 +36,7 @@ def automonus():
 
 con = Controller()
 
-def driver():
+def yuzhen_driver():
     if controller.axis3.pressing() == True:
         Left_Motor.spin(FORWARD) 
         Left_Motor.set.velocity(75, PERCENT)
