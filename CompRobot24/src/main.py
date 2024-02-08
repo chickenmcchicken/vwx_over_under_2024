@@ -76,5 +76,7 @@ def jaine_drive():
     elif controller.axis1.pressing() == True:
         Right_Motor.spin(FORWARD)
     else
+
+    pass
         
         
