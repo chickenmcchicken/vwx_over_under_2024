@@ -55,4 +55,25 @@ def yuzhen_driver():
     else: 
         Right_Motor.stop()
     pass
+
+def jaine_drive():
+    if controller.axis2.pressing() == True:
+        Left_Motor.spin(FORWARD)
+        Left_Motor.set.velocity(75, PERCENT)
+        Right_Motor.spin(FORWARD)
+        Right_Motor.set.velocity(75, PERCENT)
+    elif controller.axis2.pressing() == True
+        Left_Motor.spin(REVERSE)
+        Left_Motor.set.velocity(75, PERCENT)
+        Right_Motor.spin(REVERSE)
+        Right_Motor.set.velocity(75, PERCENT)
+    else:
+        Right_Motor.stop
+        Left_Motor.stop()
+
+    if controller.axis1.pressing() == True:
+        Left_Motor.spin(FORWARD)
+    elif controller.axis1.pressing() == True:
+        Right_Motor.spin(FORWARD)
+        
         
