@@ -62,7 +62,7 @@ def jaine_drive():
         Left_Motor.set.velocity(75, PERCENT)
         Right_Motor.spin(FORWARD)
         Right_Motor.set.velocity(75, PERCENT)
-    elif controller.axis2.pressing() == True
+    elif controller.axis2.pressing() == True:
         Left_Motor.spin(REVERSE)
         Left_Motor.set.velocity(75, PERCENT)
         Right_Motor.spin(REVERSE)
@@ -75,5 +75,6 @@ def jaine_drive():
         Left_Motor.spin(FORWARD)
     elif controller.axis1.pressing() == True:
         Right_Motor.spin(FORWARD)
+    else
         
         
