@@ -88,13 +88,16 @@ def Partner_control():
         elif con.buttonL1.pressing() == True:
             Intake.set_velocity(75, PERCENT)
             Intake.spin(REVERSE)
-        else():
+        else:
             Intake.stop
         if con.buttonR2.pressing() == True:
             Climbing_system.set_velocity(100, PERCENT)
             Climbing_system.spin(FORWARD)
         elif con.buttonL2.pressing() == True:
-
+            Climbing_system.set_velocity(100, PERCENT)
+            Climbing_system.spin(REVERSE)
+        else:
+            Climbing_system.stop
     pass
     
        
