@@ -41,7 +41,8 @@ def automonus():
 def Primary_joystick():
     pos1 = con.axis1.position()
     pos2 = con.axis2.position()
-    speed = pos1 + pos2
+    Leftspeed = abs(pos1)
+    Rightspeed = abs(pos2)
     Left_group.set_velocity(speed, PERCENT)
     Right_group.set_velocity(speed, PERCENT)
     Left_group.spin(FORWARD)
