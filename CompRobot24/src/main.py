@@ -38,49 +38,17 @@ def automonus():
 
     pass
 
-
-def primary_joysticks():
-    axis3 = con.axis3.position()
-    axis4 = con.axis4.position()
-    total = axis3 + axis4
-    more_total = axis3 + axis4
-    if abs(total) > 5: 
-        Left_group.set_velocity(total, PERCENT)
-        Left_group.spin(FORWARD)
-        Right_group.set_velocity(more_total, PERCENT)
-        Right_group.spin(FORWARD)
-        
-
-def primary_driver():
-    while True:
-        primary_joysticks()
-        if controller.axis3.position() == -100: 
-            Left_Motor.spin(REVERSE)
-            Left_Motor.set_velocity(75, PERCENT)
-        else:
-            Left_Motor.stop()
-        
-        if controller.axis2.position() == True: 
-            Right_Motor.spin(FORWARD)
-            Right_Motor.set_velocity(75, PERCENT)
-        elif controller.axis2.position() >= 50: 
-            Right_Motor.spin(REVERSE)
-            Right_Motor.set_velocity(75, PERCENT)
-        else: 
-            Right_Motor.stop()
-
-def Partner_joystick():
-    axis2 = con2.axis2.position()
-    axis1 = con2.axis1.position()
-    leftsped = axis2 - axis1
-    rightsped = axis2 + axis1
-
-    Left_group.set_velocity(leftsped, PERCENT)
-    Right_group.set_velocity(rightsped, PERCENT)
-    Left_group.spin(FORWARD); Right_group.spin(REVERSE)
+def Primary_joystick():
+    pos1 = con.axis1.position()
+    pos2 = con.axis2.position()
+    speed = pos1 + pos2
+    Left_group.set_velocity(speed, PERCENT)
+    Right_group.set_velocity(speed, PERCENT)
+    Left_group.spin(FORWARD)
+    Right_group.spin(REVERSE)
 
 
-def Partner_control():
+def Primary_control():
     while True:
         if con.buttonR1.pressing() == True:
             Intake.set_velocity(75, PERCENT)
@@ -98,11 +66,24 @@ def Partner_control():
             Climbing_system.spin(REVERSE)
         else:
             Climbing_system.stop
+        if con.axis1.position() >= 5:
+            Right_group.spin(FORWARD)
+        elif con.axis1.position() <= -5:
+            Left_group.spin(FORWARD)
+        else:
+            Left_group.stop
+            Right_group.stop
+        if con.axis3.position() >= 5:
+            Right_group.spin(FORWARD)
+            Left_group.spin(FORWARD)
+        elif con.axis3.position() <= -5:
+            Right_group.spin(REVERSE)
+            Left_group.spin(REVERSE)
+        else:
+            Left_group.stop
+            Right_group.stop
+
     pass
     
        
-
-
-        
-
         
