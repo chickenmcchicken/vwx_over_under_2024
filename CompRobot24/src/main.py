@@ -23,68 +23,64 @@ Intake = Motor(Ports.PORT8, GearSetting.RATIO_18_1, True)
 Climbing_system = Motor(Ports.PORT3, GearSetting.RATIO_36_1, True)
 Left_group = MotorGroup(Leftback_Motor, Leftfront_Motor)
 Right_group = MotorGroup(Rightback_Motor, Rightfront_Motor)
-
-def main():
-
-    pass
-
-
-def preauto():
-    pass
-
-def automonus():
+AWD = MotorGroup(Rightback_Motor, Rightfront_Motor, Leftback_Motor, Leftfront_Motor)
 
 
 
-    pass
-
-def Primary_joystick():
-    pos1 = con.axis1.position()
-    pos2 = con.axis2.position()
-    Leftspeed = abs(pos1)
-    Rightspeed = abs(pos2)
-    Left_group.set_velocity(speed, PERCENT)
-    Right_group.set_velocity(speed, PERCENT)
-    Left_group.spin(FORWARD)
-    Right_group.spin(REVERSE)
 
 
 def Primary_control():
     while True:
         if con.buttonR1.pressing() == True:
-            Intake.set_velocity(75, PERCENT)
+            Intake.set_velocity(100, PERCENT)
             Intake.spin(FORWARD)
         elif con.buttonL1.pressing() == True:
-            Intake.set_velocity(75, PERCENT)
+            Intake.set_velocity(100, PERCENT)
             Intake.spin(REVERSE)
         else:
-            Intake.stop
+            Intake.set_velocity(0, PERCENT)
+            Intake.set_stopping(HOLD)
+            wait(20, MSEC)
+        #
         if con.buttonR2.pressing() == True:
             Climbing_system.set_velocity(100, PERCENT)
-            Climbing_system.spin(FORWARD)
+            Climbing_system.spin(REVERSE)
         elif con.buttonL2.pressing() == True:
             Climbing_system.set_velocity(100, PERCENT)
-            Climbing_system.spin(REVERSE)
+            Climbing_system.spin(FORWARD)
         else:
-            Climbing_system.stop
-        if con.axis1.position() >= 5:
-            Right_group.spin(FORWARD)
-        elif con.axis1.position() <= -5:
-            Left_group.spin(FORWARD)
-        else:
-            Left_group.stop
-            Right_group.stop
-        if con.axis3.position() >= 5:
-            Right_group.spin(FORWARD)
-            Left_group.spin(FORWARD)
-        elif con.axis3.position() <= -5:
-            Right_group.spin(REVERSE)
+            Climbing_system.set_velocity(0, PERCENT)
+            Climbing_system.set_stopping(HOLD)
+            pos3 = con.axis3.position()
+            pos4 = con.axis1.position()
+            Leftsped = pos4 + pos3
+            Rightsped = pos4 - pos3
+            Left_group.set_velocity(Rightsped, PERCENT)
+            Right_group.set_velocity(Leftsped, PERCENT)
             Left_group.spin(REVERSE)
-        else:
-            Left_group.stop
-            Right_group.stop
-
-    pass
-    
-       
+            Right_group.spin(REVERSE)
+        wait(20, MSEC)
         
+
+
+
+# def autonomous():
+#     AWD.set_velocity(100, PERCENT)
+#     AWD.spin(FORWARD)
+#     wait(4, SECONDS)
+#     #Right_group.stop()
+#     #Left_group.stop()
+#     #Right_group.set_velocity(100, PERCENT)
+#     #Right_group.spin(REVERSE)
+#     #wait(2, SECONDS)
+#     #Right_group.stop()
+#     #Intake.set_velocity(100, PERCENT)
+#     #Intake.spin(FORWARD)
+#     #Intake.stop()
+    
+
+# def main():
+#     Competition(Primary_control, autonomous)
+    
+        
+# main()
