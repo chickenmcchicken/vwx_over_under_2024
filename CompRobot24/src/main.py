@@ -73,50 +73,59 @@ def Primary_control():
 
 
 def auton():
+
+    #
+    #For this autonomous to work the robot must be
+    #6 inches left and 2.75 inches left on the
+    #starting tile
+    #
+
     brain.screen.clear_screen()
     brain.screen.print("auton")
     Right_group.set_velocity(100, PERCENT)
     Left_group.set_velocity(100, PERCENT)
     Left_group.spin(FORWARD)
     Right_group.spin(REVERSE)
-    wait(0.8, SECONDS)
+    wait(0.45, SECONDS)
     Right_group.stop()
     Left_group.stop()
-    wait(1, SECONDS)
+    wait(20, MSEC)
+    Left_group.set_velocity(100, PERCENT)
+    Left_group.spin(FORWARD)
+    wait(1.2, SECONDS)
+    Left_group.stop()
+    Right_group.set_velocity(100, PERCENT)
+    Left_group.set_velocity(100, PERCENT)
+    Left_group.spin(REVERSE)
+    Right_group.spin(FORWARD)
+    wait(0.1, SECONDS)
+    Right_group.stop()
+    Left_group.stop()
+    Intake.set_velocity(100, PERCENT)
+    Intake.spin(REVERSE)
+    wait(1.5, SECONDS)
+    Intake.stop()
+    Right_group.set_velocity(100, PERCENT)
+    Left_group.set_velocity(100, PERCENT)
+    Left_group.spin(FORWARD)
+    Right_group.spin(REVERSE)
+    wait(0.1, SECONDS)
+    Right_group.stop()
+    Left_group.stop()
     Right_group.set_velocity(100, PERCENT)
     Left_group.set_velocity(100, PERCENT)
     Left_group.spin(REVERSE)
     Right_group.spin(REVERSE)
-    wait(0.25, SECONDS)
+    wait(0.65, SECONDS)
+    Right_group.stop()
+    Left_group.stop() 
+    Right_group.set_velocity(100, PERCENT)
+    Left_group.set_velocity(100, PERCENT)
+    Left_group.spin(FORWARD)
+    Right_group.spin(REVERSE)
+    wait(0.39, SECONDS)
     Right_group.stop()
     Left_group.stop()
-    
-    
-#     Intake.set_velocity(100, PERCENT)
-#     Intake.spin(FORWARD)
-#     wait(1, SECONDS)   
-#     Intake.stop()
-#     Right_group.set_velocity(100, PERCENT)
-#     Left_group.set_velocity(100, PERCENT)
-#     Left_group.spin(REVERSE)
-#     Right_group.spin(REVERSE)
-#     wait(0.5, SECONDS)
-#     Right_group.stop()
-#     Left_group.stop()
-#     Right_group.set_velocity(100, PERCENT)
-#     Left_group.set_velocity(100, PERCENT)
-#     Left_group.spin(REVERSE)
-#     Right_group.spin(FORWARD)
-#     wait(0.15, SECONDS)
-#     Left_group.stop()
-#     Right_group.stop()
-#     Left_group.set_velocity(100, PERCENT)
-#     Right_group.set_veloctiy(100, PERCENT)
-#     Left_group.spin(FORWARD)
-#     Right_group.spin(REVERSE)
-#     wait(0.15, SECONDS)
-#     Right_group.stop()
-#     Left_group.stop() 
 
 #make the functions repeat
 #they must be under functions 
@@ -132,4 +141,6 @@ def auton_function():
 
 comp = Competition(Driver_function, auton)
     
+        
+
         
