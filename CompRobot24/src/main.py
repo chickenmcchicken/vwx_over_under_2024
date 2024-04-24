@@ -82,6 +82,7 @@ def auton():
 
     brain.screen.clear_screen()
     brain.screen.print("auton")
+    #print auton
     Right_group.set_velocity(100, PERCENT)
     Left_group.set_velocity(100, PERCENT)
     Left_group.spin(FORWARD)
@@ -99,6 +100,7 @@ def auton():
     Left_group.set_velocity(100, PERCENT)
     Left_group.spin(FORWARD)
     wait(1.09, SECONDS)
+    #Robot turns left and aligns for goal
     Left_group.stop()
     Right_group.set_velocity(100, PERCENT)
     Left_group.set_velocity(100, PERCENT)
@@ -138,7 +140,7 @@ def auton():
     Left_group.spin(FORWARD)
     Right_group.spin(REVERSE)
     wait(0.8, SECONDS)
-    #Robot push acorn in
+    #Robot rams acorn in
     Right_group.stop()
     Left_group.stop()
     Left_group.set_velocity(100, PERCENT)
